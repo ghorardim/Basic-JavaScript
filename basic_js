@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Basic JavaScript</h3>
+
+<input type="number" id="myText" value="">
+
+<p>Check number even or odd</p>
+
+<button onclick="myFunction()">Check</button>
+
+<p id="demo"></p>
+<p>Print number: </p>
+<input type="number" id="from" value="from">
+<input type="number" id="to" value="to">
+<button onclick="Run()">Run</button>
+<p id="loop"></p>
+<p>Store number:  <input type="number" id="store" value=""> <button onclick="numberStore()">Store</button> </p>
+<button onclick="maximum()">Find the maximum number </button>
+<p>Note: need to store number first</p>
+<p id="max"></p>
+
+<script>
+var arr = [];
+function myFunction() {
+    var x = document.getElementById("myText").value;
+    if(x%2 == 0) x = "even";
+    else x = "odd";
+    document.getElementById("demo").innerHTML = x;
+}
+
+function Run(){
+   var f = document.getElementById("from").value;
+   var t = document.getElementById("to").value;
+   var str = "";
+   var st = "";
+   var i;
+   if(f<=t) {
+    for(i = f;i<=t;i++){
+    str += "" + i + " ";
+    console.log(i);
+    }
+   }
+   else {
+    for(i = f;i>=t;i--){
+     str += "" + i + " ";
+     console.log(i);
+    }
+   }
+   document.getElementById("loop").innerHTML = str;
+}
+function numberStore(){
+  var x = document.getElementById("store").value;
+  arr.push(x);
+}
+
+function maximum(){
+  var i = 0;
+  var mx = arr[0];
+  console.log("length "+arr.length);
+  mx=Math.max.apply(null, arr);
+/*  for(i=0;i<arr.length;i++){
+    console.log("mx = "+ mx + " i = " + arr[i] );
+    if(arr[i].value>mx.value) {
+      mx = arr[i];
+    }
+  }*/
+
+  document.getElementById("max").innerHTML = mx;
+}
+
+</script>
+
+</body>
+</html>
